@@ -1,0 +1,94 @@
+.signup {
+    background-color: darkgreen;
+    height: 100vh;
+    position: relative;
+    .logo {
+        position: absolute;
+        left: 2%;
+        top: 3.5%;
+        object-fit: cover;
+        height: 6rem;
+        width: 6rem;
+        background-color: white;
+        border-radius: 4rem;
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    &--box {
+        width: 40%;
+        position: absolute;
+        padding: 2rem;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        text-align: center;
+        line-height: 1.5;
+        h2 {
+            font-weight: bold;
+            font-size: calc(2vw + 1rem);
+        }
+        .btn {
+            background: black;
+            color: white;
+            padding: .8rem 4.5rem;
+            border-radius: 7px;
+            margin-top: 1.5rem;
+            transition: all .2s;
+            &:hover {
+                background-color: white;
+                color: black;
+            }
+        }
+    }
+}
+
+.btn--active {
+    color: black;
+    background: white;
+    padding: .8rem 4.5rem;
+    border-radius: 7px;
+    margin-top: 1.5rem;
+}
+
+input {
+    margin: 2rem 0;
+}
+
+@media screen and (max-width: 770px) {
+    .signup--box {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .signup {
+        .logo {
+            height: 4rem;
+            width: 4rem;
+            img {
+                transform: translate(-50%, -50%) scale(.6);
+            }
+        }
+        &--box {
+            width: 80%;
+            padding: 1rem;
+            .btn {
+                padding: .8rem 1rem;
+            }
+            .col-sm-6 {
+                width: 50%;
+            }
+        }
+    }
+    .btn--active {
+        padding: .8rem 1rem;
+    }
+    input {
+        margin: 1.5rem 0;
+    }
+}

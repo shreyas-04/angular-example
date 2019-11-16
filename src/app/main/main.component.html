@@ -1,0 +1,45 @@
+<div class="row">
+    <div class=" col-md-12 col-lg-7 info">
+        <div class="logo">
+            <img src="../../assets/mentee_education_llp_582318.jpg" class="img-responsive" alt="">
+        </div>
+        <h3>Lorem, ipsum dolor sit amet, consectetur adipisicing elit, Pariatur explicabo ipsa.</h3>
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, autem. Rem, quos. Dolor, doloremque nihil? Debitis, nobis aut ab id inventore nostrum minus, itaque dicta adipisci excepturi a dolorem laudantium.</p>
+    </div>
+
+    <div class="col-md-12 col-lg-5 login">
+        <div class="login-box">
+            <h2>Welcome!</h2>
+            <h5>Login to access Mentee</h5>
+
+            <div class="row">
+                <div class=" col-md-6">
+                    <button class="btn " (click)="btnClick('user')" [ngClass]="{'btn--active':  loginType == 'user'}" type="button">User</button>
+                </div>
+                <div class=" col-md-6">
+                    <button class="btn" (click)="btnClick('institute')" [ngClass]="{'btn--active': loginType == 'institute'}" type="button">Institute</button>
+                </div>
+            </div>
+
+            <form (ngSubmit)="onSubmit()" #f="ngForm">
+
+                <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
+                    <div class="form-group" *ngIf="loginType == 'user'">
+                        <input type="text" id="username" class="form-control" ngModel name="username" placeholder="Username" required>
+                    </div>
+                    <div class="form-group" *ngIf="loginType != 'user'">
+                        <input type="text" id="username" class="form-control" ngModel name="username" placeholder="Institute" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="password" class="form-control" ngModel name="password" placeholder="Password" required>
+                    </div>
+                </div>
+                <span class="help-block" *ngIf="userData.invalid && userData.touched">Invalid Data<br></span>
+                <a href="#">forgot password?</a><br>
+                <a [routerLink]="['/signup']">New here? Sign Up</a>
+
+                <button class="btn btn__submit" type="submit" [disabled]="!f.valid">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

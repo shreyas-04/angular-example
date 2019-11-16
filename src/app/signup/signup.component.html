@@ -1,0 +1,35 @@
+<div class="signup">
+    <div class="logo">
+        <img src="../../assets/mentee_education_llp_582318.jpg" alt="">
+    </div>
+
+    <div class="signup--box">
+        <h2>Welcome!</h2>
+        <h4>Sign-up to access Mentee</h4>
+        <div class="row">
+            <div class="col-sm-6">
+                <button class="btn--active" type="button">User</button>
+            </div>
+            <div class="col-sm-6">
+                <button class="btn" [routerLink]="['/signup-institute']" type="button">Institute</button>
+            </div>
+        </div>
+        <form (ngSubmit)="onSubmit()" #f="ngForm">
+
+            <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
+                <div class="form-group" *ngIf="loginType == 'user'">
+                    <input type="text" id="username" class="form-control" ngModel name="username" placeholder="Username" required>
+                </div>
+                <div class="form-group" *ngIf="loginType != 'user'">
+                    <input type="text" id="username" class="form-control" ngModel name="username" placeholder="Institute" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" class="form-control" ngModel name="password" placeholder="Password" required>
+                </div>
+            </div>
+            <span class="help-block" *ngIf="userData.invalid && userData.touched">Invalid Data<br></span>
+
+            <button class="btn" type="submit" style="width: 60%;" [disabled]="!f.valid" [routerLink]="['/']">Submit</button>
+        </form>
+    </div>
+</div>
